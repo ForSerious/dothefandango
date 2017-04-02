@@ -4,6 +4,6 @@ from django.db import models
 
 # Create your models here.
 def aNumber():
-    sTime = time.strftime("%c")
-    iNum = int(sTime[15:])
+    sTime = time.strftime("%S")
+    iNum = int(sTime)
     return str(iNum * 3)

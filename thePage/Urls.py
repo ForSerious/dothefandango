@@ -2,6 +2,7 @@ from django.conf.urls import url
 
 from . import views
 
+app_name = 'thePage'
 urlpatterns = [
     url(r'^$', views.thePage, name='thePage'),
     # ex: /polls/5/

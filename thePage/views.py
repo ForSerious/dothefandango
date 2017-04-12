@@ -6,7 +6,7 @@ from django.http import Http404
 from .models import Question, Choice
 import time
 # Create your views here.
-    
+## python manage.py runserver 0.0.0.0:8080   
 def thePage(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     template = loader.get_template('thePage/thePage.html')
@@ -21,8 +21,8 @@ def detail(request, question_id):
     return render(request, 'thePage/detail.html', {'question': question})
 
 def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'thePage/results.html', {'question': question})
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
